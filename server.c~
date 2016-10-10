@@ -7,13 +7,12 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 
-//вариант 2 - передать пронрамму popen
 
 typedef struct _params{
 	int socket;
 }params;
 
-void *compute(void* arg){
+void *execute(void* arg){
 	char buffer[256];
 	int n;
 	bzero(buffer,256);
@@ -48,7 +47,7 @@ void *compute(void* arg){
 	close(parameter.socket);
 }
 
-int main()
+int main(int argc, char**argv)
 {
 	int sockfd, newsockfd, portno;
 	socklen_t clilen;
@@ -61,7 +60,7 @@ int main()
 		exit(0);
 	}
 	bzero((char *) &serv_addr, sizeof(serv_addr));
-	portno = 450;
+	portno = atoi(argv[1]);
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = INADDR_ANY;
 	serv_addr.sin_port = htons(portno);

@@ -8,7 +8,7 @@
 #include <string.h>
 #include <netdb.h>
 
-int main()
+int main(int argc, char**argv)
 {
 	int sockfd, portno, n;
 	struct sockaddr_in serv_addr;
@@ -56,7 +56,7 @@ int main()
 		printf("%s",buffer);
 		bzero(buffer,256);
 	}
-	printf("I am ready!\n");
+	printf("Completed\n");
 	close(sockfd);
 	return 0;
 }

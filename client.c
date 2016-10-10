@@ -8,13 +8,13 @@
 #include <string.h>
 #include <netdb.h>
 
-int main()
+int main(int argc, char**argv)
 {
 	int sockfd, portno, n;
 	struct sockaddr_in serv_addr;
 	struct hostent *server;
 	char buffer[256];
-	portno = 450;
+	portno = atoi(argv[1]);
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd < 0) {
 		perror("ERROR opening socket");
