@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 
+//вариант 2 - передать пронрамму popen
 
 typedef struct _params{
 	int socket;
